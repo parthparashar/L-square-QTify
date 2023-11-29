@@ -1,0 +1,9 @@
+.nabvar{
+    display: flex;
+    width: 100vw;
+    height: 74px;
+    background-color: var(--css-primary);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+}
