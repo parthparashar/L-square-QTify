@@ -4,7 +4,7 @@ import {ReactComponent as SearchIcon} from './Images/Search_icon.svg';
         <div>
             <form style={{
                 display:'flex',
-                minWidth: '568px'
+                minWidth: '40vw'
             }}>
                 <input 
                 placeholder='search an album of your choice'

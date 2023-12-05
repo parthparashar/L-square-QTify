@@ -1,7 +1,8 @@
 import Button from "./Button";
 import SearchBox from "./SearchBox";
 import  './Navbar.css';
-import  Groupos from "./Images/Groupos.svg"
+import  Groupos from "./Images/Groupos.svg";
+
 function Navbars() {
   return (
     <div className="nabvar">

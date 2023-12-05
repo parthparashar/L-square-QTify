@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 272px;
+    width: 100%;
+    background-color: var(--css-black);
+}
+.para{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text{
+    color: var(--css-white);
+}
+.imgsrc{
+    width: 212px;
+    height: 212px;
+}
