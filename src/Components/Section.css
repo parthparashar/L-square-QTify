@@ -13,3 +13,13 @@
     row-gap: 10px;
     margin-top: 10px;
 }
+.section-header{
+    display: flex;
+    justify-content: space-between;
+}
+.section_toggle{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--css-primary);
+    cursor: pointer;
+}

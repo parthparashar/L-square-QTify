@@ -3,8 +3,10 @@ import './Section.css';
 import Card from "./Card";
 import axios from "axios";
 
+import Carousel from './Carousel'
 
 function Section(props){
+    const [isCollpased, setIsCollapsed] = useState(false);
     const[albumTop,setAlbumTop] = useState([]);
     const [albumNew,setAlbumNew] = useState([]);
     const loadNewAlbumData = async () => {
@@ -26,6 +28,10 @@ function Section(props){
         }
     };
 
+    const handlechange = () => {
+        setIsCollapsed(!isCollpased);
+    }
+
     useEffect(()=>{
         async function loadData(){
             let res1 = await loadTopAlbumData()
@@ -37,7 +43,17 @@ function Section(props){
     },[]);
     return(
         <div className="section">
-            <h1 className="title">{props.title}</h1>
+            <div className="section-header">
+                <h1 className="title">{props.title}</h1>
+                <h1 className="section_toggle" onClick={handlechange}>{isCollpased? 'Show all' :'Collapse'}</h1>
+            </div>
+            {isCollpased ?
+            <Carousel 
+                title= {props.title} 
+                albumTop = {albumTop}
+                albumNew = {albumNew}
+            />
+            :
             <div className="card_container">
                 {props.title === "Top Albums" ?
                     (albumTop.map((pic) => (
@@ -58,7 +74,7 @@ function Section(props){
                         ))
                     )
                 }
-            </div>
+            </div>}
             <hr></hr>
         </div>
     );
