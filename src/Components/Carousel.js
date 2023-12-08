@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";  
 import "./Carousel.css"
 
-function Carousel (props){
+function Carousel ({navId,data}){
     const [swiperRef, setSwiperRef] = useState(null);
     const [slides, setSlides] = useState(
         Array.from({ length: 500 }).map((_, index) => `Slide ${index + 1}`),
@@ -22,32 +22,21 @@ function Carousel (props){
                 slidesPerView={8}
                 spaceBetween={30}
                 //navigation={true}
-                navigation ={{nextEl: ".arrow-right", prevEl: ".arrow-left"}}
+                navigation ={{nextEl: `.arrow-right-${navId}`, prevEl: `.arrow-left-${navId}`}}
                 virtual
             >
-                {props.title === "Top Albums" ?
-                    (props.albumTop.map((pic) => (
-                        <SwiperSlide key={pic.id} >
-                            <Card   
-                                follows={pic.follows}
-                                songsTitle={pic.title}
-                                image={pic.image}
-                            />
-                        </SwiperSlide>
-                    ))) : (
-                    props.albumNew.map((pic) => (
-                        <SwiperSlide key={pic.id}>
-                            <Card
-                                follows={pic.follows}
-                                songsTitle={pic.title}
-                                image={pic.image}
-                            />
-                        </SwiperSlide>
-                    )))
-                }
+            {data.map((pic) => (
+                <SwiperSlide key={pic.id} >
+                    <Card   
+                        follows={pic.follows}
+                        songsTitle={pic.title}
+                        image={pic.image}
+                    />
+                </SwiperSlide>
+            ))} 
             </Swiper>
-            <div className="arrow-left arrow"><img src={Leftswipe} /></div>
-            <div className="arrow-right arrow"><img src={Rightswipe}  /></div> 
+            <div className={`arrow-left-${navId} arrow-left arrow`}><img src={Leftswipe} /></div>
+            <div  className={`arrow-right-${navId} arrow-right arrow`}><img src={Rightswipe}  /></div> 
         </div>
     )
 }

@@ -3,7 +3,7 @@ import photos from './Images/card_img.svg';
 import './Card.css'
 function Card(props)
 {   
-    console.log(props,"props");
+    //console.log(props,"props");
     return(
             <div className="cwrapper">
                 <div className="card">
@@ -16,7 +16,6 @@ function Card(props)
                     <p className="card-label">{props.songsTitle}</p>
                 </div>
             </div>
-        
         )
 }
 
